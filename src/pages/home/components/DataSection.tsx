@@ -1,4 +1,3 @@
-import { useRef } from "react"
 import { CircleAlertIcon, FileTextIcon, Loader2Icon, UploadIcon } from "lucide-react"
 import Button from "@/components/Button/Button"
 import Section from "@/components/Section/Section"
@@ -15,7 +14,7 @@ type DataSectionProps = {
   total: number
   error: string
   loading: LoadingSource
-  onUpload: (file: File | undefined) => void
+  onPickFile: () => void
   onLoadSample: () => void
 }
 
@@ -28,23 +27,14 @@ export default function DataSection({
   total,
   error,
   loading,
-  onUpload,
+  onPickFile,
   onLoadSample,
 }: DataSectionProps) {
-  const fileInput = useRef<HTMLInputElement>(null)
-
-  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    onUpload(e.target.files?.[0])
-    // Reset so the same file can be picked again
-    e.target.value = ""
-  }
-
   const spinner = <Loader2Icon className={styles.spinner} role="status" aria-label="Loading" />
 
   const actions = (
     <>
-      <input ref={fileInput} type="file" accept=".csv,text/csv,text/plain" onChange={handleFileChange} hidden />
-      <Button onClick={() => fileInput.current?.click()} disabled={loading !== null}>
+      <Button onClick={onPickFile} disabled={loading !== null}>
         {loading === "file" ? spinner : <UploadIcon />}
         Upload CSV
       </Button>

@@ -38,11 +38,13 @@
     box-shadow 0.15s ease,
     background 0.15s ease;
 }
-:global(.dark) .select {
-  background: color-mix(in oklab, var(--line-strong) 30%, transparent);
-}
-:global(.dark) .select:hover {
-  background: color-mix(in oklab, var(--line-strong) 50%, transparent);
+@media (prefers-color-scheme: dark) {
+  .select {
+    background: color-mix(in oklab, var(--line-strong) 30%, transparent);
+  }
+  .select:hover {
+    background: color-mix(in oklab, var(--line-strong) 50%, transparent);
+  }
 }
 .select option {
   color: var(--fg);

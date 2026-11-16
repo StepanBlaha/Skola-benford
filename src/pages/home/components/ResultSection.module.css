@@ -1,0 +1,65 @@
+.verdict {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Colored dot for each verdict */
+.verdict i {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.close,
+.acceptable {
+  background: var(--success);
+}
+.marginal {
+  background: var(--warning);
+}
+.none {
+  background: var(--danger);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 14px;
+  color: var(--fg-muted);
+}
+
+.mad {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.explain {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.warning {
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--warning);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.warning svg {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}

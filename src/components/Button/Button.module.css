@@ -44,10 +44,12 @@
 .outline:hover {
   background: var(--panel);
 }
-:global(.dark) .outline {
-  background: color-mix(in oklab, var(--line-strong) 30%, transparent);
-  border-color: var(--line-strong);
-}
-:global(.dark) .outline:hover {
-  background: color-mix(in oklab, var(--line-strong) 50%, transparent);
+@media (prefers-color-scheme: dark) {
+  .outline {
+    background: color-mix(in oklab, var(--line-strong) 30%, transparent);
+    border-color: var(--line-strong);
+  }
+  .outline:hover {
+    background: color-mix(in oklab, var(--line-strong) 50%, transparent);
+  }
 }

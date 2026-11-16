@@ -10,6 +10,8 @@
   --fg-faint: #9f9fa9;
   --info: #3b82f6;
   --danger: #dc2626;
+  --success: #16a34a;
+  --warning: #b45309;
   --dot: rgba(9, 9, 11, 0.05);
 
   --sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
@@ -22,18 +24,23 @@
   color-scheme: light;
 }
 
-.dark {
-  --bg: #09090b;
-  --panel: #27272a;
-  --line: #27272a;
-  --line-strong: #3f3f46;
-  --fg: #fafafa;
-  --fg-muted: #9f9fa9;
-  --fg-faint: #52525b;
-  --danger: #ef4444;
-  --dot: rgba(255, 255, 255, 0.09);
+/* Dark colors when the system is in dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #09090b;
+    --panel: #27272a;
+    --line: #27272a;
+    --line-strong: #3f3f46;
+    --fg: #fafafa;
+    --fg-muted: #9f9fa9;
+    --fg-faint: #52525b;
+    --danger: #ef4444;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --dot: rgba(255, 255, 255, 0.09);
 
-  color-scheme: dark;
+    color-scheme: dark;
+  }
 }
 
 *,

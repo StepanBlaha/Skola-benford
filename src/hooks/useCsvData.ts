@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react"
 import { CsvFileSchema, CsvTextSchema, PastedTextSchema } from "@/schemas/csv"
 import { bestColumn, countFirstDigits, toDigitRows } from "@/utils/benford"
+import { conformity, meanAbsoluteDeviation, orderSpan } from "@/utils/conformity"
 import { parseCsv } from "@/utils/csv"
 
 export type LoadingSource = "file" | "sample" | null
@@ -25,6 +26,10 @@ export function useCsvData() {
 
   const digitRows = toDigitRows(countFirstDigits(csvRows, column))
   const total = digitRows.reduce((sum, row) => sum + row.count, 0)
+
+  // How well the data follows Benford, and how spread out the numbers are
+  const mad = meanAbsoluteDeviation(digitRows)
+  const orders = orderSpan(csvRows, column)
 
   // Typing keeps the picked column
   function pasteText(next: string) {
@@ -90,9 +95,13 @@ export function useCsvData() {
     setColumn: setPickedColumn,
     digitRows,
     total,
+    mad,
+    conformity: conformity(mad),
+    orders,
     error,
     loading,
     uploadFile,
     loadSample,
+    showError: setError,
   }
 }
