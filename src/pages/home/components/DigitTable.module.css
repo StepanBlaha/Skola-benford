@@ -1,0 +1,55 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Hidden, only for screen readers */
+.caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.table {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  border-collapse: collapse;
+}
+
+.table tr {
+  border-bottom: 1px solid var(--line);
+  transition: background 0.15s ease;
+}
+.table tbody tr:last-child {
+  border-bottom: 0;
+}
+.table tbody tr:hover {
+  background: color-mix(in oklab, var(--panel) 50%, transparent);
+}
+
+.table th {
+  height: 40px;
+  padding: 0 8px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 8px;
+  white-space: nowrap;
+}
+
+.table .number {
+  text-align: right;
+}
+
+.body {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}

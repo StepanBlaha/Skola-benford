@@ -1,0 +1,62 @@
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 20px var(--pad);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  color: var(--fg);
+}
+
+.description {
+  font-size: 14px;
+  color: var(--fg-muted);
+  max-width: 52ch;
+}
+
+.action {
+  display: flex;
+  gap: 8px;
+}
+
+/* Line under the heading across the whole screen */
+.rule {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+}
+.rule::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  width: 200vw;
+  height: 1px;
+  background: var(--edge);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px var(--pad) 32px;
+}
