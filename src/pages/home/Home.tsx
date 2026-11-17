@@ -23,7 +23,7 @@ export default function Home() {
     noClick: true,
     noKeyboard: true,
     onDropAccepted: (files) => csv.uploadFile(files[0]),
-    onDropRejected: () => csv.showError("Only one CSV file can be loaded"),
+    onDropRejected: () => csv.showError("Only CSV files can be loaded"),
   })
 
   return (
